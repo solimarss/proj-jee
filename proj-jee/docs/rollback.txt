@@ -1,0 +1,14 @@
+@Resource
+protected SessionContext context;
+	
+	
+	public void insert(Doador d1, Doador d2){
+		try {
+			em.persist(d1);
+			em.persist(d2);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			context.setRollbackOnly();
+		}
+	}
